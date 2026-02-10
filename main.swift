@@ -171,3 +171,39 @@ for (genre, motos) in motos {
         print(" - \(moto)")
     }
 }
+
+
+
+///////////// 9. Dictionnaires Complexes /////////////
+var produits: [String: Double] = [
+    "Laptop": 1200.0,
+    "Clavier": 45.0,
+    "Souris": 25.0,
+    "Écran": 300.0,
+    "Casque": 80.0
+]
+
+func produitsMoinsChers(que limite: Double, dans dictionnaire: [String: Double]) -> [String: Double] {
+    
+    var resultat: [String: Double] = [:]
+    
+    for (produit, prix) in dictionnaire {
+        if prix < limite {
+            resultat[produit] = prix
+        }
+    }
+    
+    return resultat
+}
+
+
+let limitePrix = 100.0
+
+let produitsFiltres = produitsMoinsChers(que: limitePrix, dans: produits)
+
+// Affichage du résultat
+print("Produits en dessous de \(limitePrix)€ :")
+
+for (produit, prix) in produitsFiltres {
+    print("- \(produit) : \(prix)€")
+}
